@@ -1,0 +1,81 @@
+//apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'java-gradle-plugin'
+
+version = "0.0.2"
+group = "com.spx.gradle.general"
+
+
+repositories {
+    jcenter()
+    mavenCentral()
+    mavenLocal()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+}
+
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+
+    }
+    repositories {
+        maven {
+            credentials {
+                username "${project.nexusUsername}"
+                password "${project.nexusPassword}"
+            }
+
+            if(project.version.endsWith('-SNAPSHOT')) {
+                url "${project.nexusUrl}${project.relativePathSnapshots}"
+            } else {
+                url "${project.nexusUrl}${project.relativePathReleases}"
+            }
+        }
+    }
+}
+
+
+
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: mavenLocal().url)
+        }
+    }
+}
+
+
+
+gradlePlugin {
+    plugins {
+        simplePlugin {
+            id = "${group}.containment"
+            implementationClass = 'com.spx.gradle.plugin.GeneralPlugin'
+        }
+        simplePlugin {
+            id = "${group}.containment-dependency"
+            implementationClass = 'com.spx.gradle.plugin.GeneralDependencyPlugin'
+        }
+
+
+    }
+}
+
+
+
+dependencies {
+//    implementation gradleApi()
+    testImplementation( 'org.junit.jupiter:junit-jupiter:5.5.2')
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+//    compile group: 'io.spring.dependency-management', name: 'io.spring.dependency-management.gradle.plugin', version: '1.0.9.RELEASE', ext: 'pom'
+
+}
+
+
