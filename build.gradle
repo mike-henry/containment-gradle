@@ -1,10 +1,13 @@
 //apply plugin: 'java'
-apply plugin: 'maven'
+//apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'java-gradle-plugin'
 
 version = "0.0.2"
 group = "com.spx.gradle.general"
+
+
+sourceCompatibility = 1.8
 
 
 repositories {
@@ -42,29 +45,33 @@ publishing {
 
 
 
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: mavenLocal().url)
-        }
-    }
-}
+//
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            repository(url: mavenLocal().url)
+//        }
+//    }
+//}
 
 
 
 gradlePlugin {
     plugins {
+//        simplePlugin {
+//            id = "${group}.containment"
+//            implementationClass = 'com.spx.gradle.plugin.GeneralPlugin'
+//        }
+
+
+//        simplePlugin {
+//            id = "${group}.containment-dependency"
+//            implementationClass = 'com.spx.gradle.plugin.GeneralDependencyPlugin'
+//        }
         simplePlugin {
             id = "${group}.containment"
-            implementationClass = 'com.spx.gradle.plugin.GeneralPlugin'
+            implementationClass = 'com.spx.gradle.plugin.ContainmentServerPlugin'
         }
-        simplePlugin {
-            id = "${group}.containment-dependency"
-            implementationClass = 'com.spx.gradle.plugin.GeneralDependencyPlugin'
-        }
-
-
     }
 }
 
