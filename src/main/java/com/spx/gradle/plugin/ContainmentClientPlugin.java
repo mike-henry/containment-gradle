@@ -3,7 +3,7 @@ package com.spx.gradle.plugin;
 import org.gradle.api.Project;
 import org.springframework.boot.gradle.plugin.SpringBootPlugin;
 
-public class ContainmentServerPlugin extends  GeneralPlugin {
+public class ContainmentClientPlugin extends  GeneralPlugin {
 
   private static final String IO_SPRING_DEPENDENCY_MANAGEMENT = "io.spring.dependency-management";
   private final String apis[] = {
@@ -14,15 +14,12 @@ public class ContainmentServerPlugin extends  GeneralPlugin {
       "io.swagger:swagger-jersey2-jaxrs:1.5.8",
       "io.springfox:springfox-swagger2:2.9.2",
       "io.springfox:springfox-swagger-ui:2.9.2",
-      "org.springframework.boot:spring-boot-starter-data-neo4j",
       "jakarta.validation:jakarta.validation-api:2.0.2",
       "javax.annotation:javax.annotation-api:1.3.2"
   };
 
   private final String implementations[] ={
-      "org.glassfish.jersey.core:jersey-server:2.16",
       "org.springframework.boot:spring-boot-configuration-processor",
-       "org.springframework.boot:spring-boot-starter-aop",
        "org.springframework.boot:spring-boot-starter-actuator",
        "org.glassfish.jersey.security:oauth2-client:2.27",
        "org.springframework.boot:spring-boot-starter-oauth2-client",

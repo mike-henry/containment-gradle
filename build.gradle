@@ -67,8 +67,12 @@ gradlePlugin {
             implementationClass = 'com.spx.gradle.plugin.GeneralDependencyPlugin'
         }
         containmentServerPlugin {
-            id = "${group}.containment-container"
+            id = "${group}.containment-server"
             implementationClass = 'com.spx.gradle.plugin.ContainmentServerPlugin'
+        }
+        containmentClientPlugin {
+            id = "${group}.containment-client"
+            implementationClass = 'com.spx.gradle.plugin.ContainmentClientPlugin'
         }
         containtmentStarterPlugin {
             id = "${group}.containment-startup"

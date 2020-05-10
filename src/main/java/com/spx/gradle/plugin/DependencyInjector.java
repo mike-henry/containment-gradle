@@ -16,7 +16,7 @@ public class DependencyInjector {
       "org.apache.commons:commons-lang3:3.9"
   };
 
-  private static final String[] testImplementations ={
+  private static final String[] testImplementations = {
       "org.junit.jupiter:junit-jupiter-api:5.6.2",
       "org.mockito:mockito-core:3.1.0"
   };
