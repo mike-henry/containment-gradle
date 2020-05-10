@@ -30,7 +30,7 @@ public class DependencyInjector {
     ANNOTATION_PROCESSOR("annotationProcessor"),
     COMPILE_ONLY("compileOnly"),
     TEST_IMPLEMENTATION ( "testImplementation"),
-    API("api");
+    API("compile");
 
     private final String configuration;
 

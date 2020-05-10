@@ -58,19 +58,21 @@ publishing {
 
 gradlePlugin {
     plugins {
-//        simplePlugin {
-//            id = "${group}.containment"
-//            implementationClass = 'com.spx.gradle.plugin.GeneralPlugin'
-//        }
-
-
-//        simplePlugin {
-//            id = "${group}.containment-dependency"
-//            implementationClass = 'com.spx.gradle.plugin.GeneralDependencyPlugin'
-//        }
-        simplePlugin {
+        generalPlugin {
             id = "${group}.containment"
+            implementationClass = 'com.spx.gradle.plugin.GeneralPlugin'
+        }
+        dependencyPlugin {
+            id = "${group}.containment-dependency"
+            implementationClass = 'com.spx.gradle.plugin.GeneralDependencyPlugin'
+        }
+        containmentServerPlugin {
+            id = "${group}.containment-container"
             implementationClass = 'com.spx.gradle.plugin.ContainmentServerPlugin'
+        }
+        containtmentStarterPlugin {
+            id = "${group}.containment-startup"
+            implementationClass = 'com.spx.gradle.plugin.ContainmentStarterPlugin'
         }
     }
 }
@@ -78,11 +80,11 @@ gradlePlugin {
 
 
 dependencies {
-//    implementation gradleApi()
     testImplementation( 'org.junit.jupiter:junit-jupiter:5.5.2')
     implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
-//    compile group: 'io.spring.dependency-management', name: 'io.spring.dependency-management.gradle.plugin', version: '1.0.9.RELEASE', ext: 'pom'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: '2.2.4.RELEASE'
 
+   // implementation group: 'io.spring.dependency-management', name: 'io.spring.dependency-management.gradle.plugin', version: '1.0.9.RELEASE', ext: 'pom'
 }
 
 
