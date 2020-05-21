@@ -8,8 +8,7 @@ import org.springframework.boot.gradle.plugin.SpringBootPlugin;
 
 public class ContainmentClientPlugin extends  GeneralPlugin {
 
-  private static final String IO_SPRING_DEPENDENCY_MANAGEMENT = "io.spring.dependency-management";
-  private final String[] apis = {
+   private static final String[] apis = {
       "org.apache.commons:commons-lang3:3.9",
       "org.slf4j:slf4j-api:1.7.30",
       "org.springframework.boot:spring-boot-starter-jersey",
@@ -21,7 +20,7 @@ public class ContainmentClientPlugin extends  GeneralPlugin {
       "javax.annotation:javax.annotation-api:1.3.2"
   };
 
-  private final String[] implementations = {
+  private static final String[] implementations = {
       "io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE",
       SpringBootPlugin.BOM_COORDINATES,
       "org.springframework.boot:spring-boot-configuration-processor",
