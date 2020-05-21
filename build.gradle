@@ -44,18 +44,6 @@ publishing {
 }
 
 
-
-//
-//uploadArchives {
-//    repositories {
-//        mavenDeployer {
-//            repository(url: mavenLocal().url)
-//        }
-//    }
-//}
-
-
-
 gradlePlugin {
     plugins {
         generalPlugin {
